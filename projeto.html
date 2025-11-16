@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos Sociais | Abrace a Causa</title>
+    <!-- Link para o Design System (CSS) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container main-header-content">
+            <h1>Abrace a Causa</h1>
+            <!-- Ícone Menu Hambúrguer (Apenas para Mobile) -->
+            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                &#9776; <!-- Ícone de hambúrguer -->
+            </button>
+
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li class="dropdown">
+                        <a href="#">Como Ajudar &#9662;</a>
+                        <ul class="dropdown-content">
+                            <li><a href="cadastro.html?tipo=voluntario">Quero ser Voluntário</a></li>
+                            <li><a href="cadastro.html?tipo=doador">Quero Doar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h2 style="text-align: center;">Ações de Alto Impacto</h2>
+            <p style="text-align: center; margin-bottom: var(--space-lg);">Conheça as principais iniciativas que estão transformando a vida de milhares de pessoas em nossa região. Selecione o projeto para se engajar.</p>
+            
+            <!-- .project-cards-container usa CSS Grid responsivo para a organização dos projetos -->
+            <div class="project-cards-container">
+                
+                <!-- CARD 1: Projeto Leitura para Todos -->
+                <article class="card">
+                    <h3>Projeto Leitura para Todos</h3>
+                    <span class="badge badge-voluntariado">Educação</span>
+                    <img src="https://placehold.co/400x200/28a745/ffffff?text=Leitura+Comunidade" alt="Crianças lendo livros." style="border-radius: var(--border-radius);">
+                    <p>Distribuição de livros e aulas de reforço para crianças e adolescentes em situação de vulnerabilidade.</p>
+                    <!-- Link para o formulário de voluntário -->
+                    <a href="cadastro.html?tipo=voluntario" class="btn btn-primary" style="margin-top: auto;">Participar</a>
+                </article>
+                
+                <!-- CARD 2: Sustentabilidade Urbana -->
+                <article class="card">
+                    <h3>Sustentabilidade Urbana</h3>
+                    <span class="badge badge-voluntariado">Meio Ambiente</span>
+                    <img src="https://placehold.co/400x200/007bff/ffffff?text=Horta+Comunitaria" alt="Voluntários trabalhando em uma horta." style="border-radius: var(--border-radius);">
+                    <p>Criação de hortas comunitárias em áreas urbanas, promovendo a segurança alimentar e a ecologia local.</p>
+                    <a href="cadastro.html?tipo=voluntario" class="btn" style="margin-top: auto;">Detalhes</a>
+                </article>
+
+                <!-- CARD 3: Campanha de Inverno -->
+                <article class="card">
+                    <h3>Campanha de Inverno</h3>
+                    <span class="badge badge-doacao">Doação</span>
+                    <img src="https://placehold.co/400x200/ffc107/343a40?text=Agasalho" alt="Roupas de inverno para doação." style="border-radius: var(--border-radius);">
+                    <p>Campanha anual para arrecadar agasalhos, cobertores e itens de higiene pessoal para pessoas em situação de rua.</p>
+                    <!-- Link para o formulário de doador -->
+                    <a href="cadastro.html?tipo=doador" class="btn btn-primary" style="margin-top: auto;">Como Doar</a>
+                </article>
+
+                <!-- CARD 4: Apoio à Saúde Mental -->
+                <article class="card">
+                    <h3>Apoio à Saúde Mental</h3>
+                    <span class="badge badge-voluntariado">Saúde</span>
+                    <img src="https://placehold.co/400x200/dc3545/ffffff?text=Saude+Mental" alt="Duas pessoas conversando." style="border-radius: var(--border-radius);">
+                    <p>Oferecimento de suporte psicológico gratuito para famílias de baixa renda e workshops de bem-estar.</p>
+                    <a href="cadastro.html?tipo=voluntario" class="btn" style="margin-top: auto;">Saiba Mais</a>
+                </article>
+
+                 <!-- CARD 5: Inclusão Digital -->
+                <article class="card">
+                    <h3>Inclusão Digital</h3>
+                    <span class="badge badge-voluntariado">Tecnologia</span>
+                    <img src="https://placehold.co/400x200/343a40/ffffff?text=Inclusao+Digital" alt="Voluntários ensinando em um computador." style="border-radius: var(--border-radius);">
+                    <p>Cursos básicos de informática e internet para idosos e pessoas com acesso limitado à tecnologia.</p>
+                    <a href="cadastro.html?tipo=voluntario" class="btn btn-primary" style="margin-top: auto;">Detalhes</a>
+                </article>
+                
+                <!-- CARD 6: Cozinha Solidária -->
+                <article class="card">
+                    <h3>Cozinha Solidária</h3>
+                    <span class="badge badge-doacao">Emergencial</span>
+                    <img src="https://placehold.co/400x200/ff7f00/ffffff?text=Cozinha+Comunitaria" alt="Voluntários preparando comida." style="border-radius: var(--border-radius);">
+                    <p>Fornece mais de 300 refeições por semana para a população em situação de rua. Necessita de doações de alimentos e equipamentos.</p>
+                    <a href="cadastro.html?tipo=doador" class="btn btn-primary" style="margin-top: auto;">Apoiar Causa</a>
+                </article>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Abrace a Causa. Todos os direitos reservados. | Desenvolvido com carinho.</p>
+        </div>
+    </footer>
+    <script src="js/scripts.js"></script> 
+</body>
+</html>
