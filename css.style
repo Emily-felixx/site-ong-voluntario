@@ -1,0 +1,448 @@
+/* ======================================================
+  Abrace a Causa - Design System (style.css)
+  Estilo global e classes utilitárias para o site.
+  Garate a responsividade e a consistência visual.
+======================================================
+*/
+
+/* 1. Variáveis CSS (Cores e Espaçamento) */
+:root {
+    /* Cores */
+    --color-primary: #0056b3; /* Azul Principal (Voluntariado) */
+    --color-secondary: #0080ff; /* Azul Mais Claro */
+    --color-accent: #ffc107; /* Amarelo/Âmbar (Destaque/Doação) */
+    --color-neutral-light: #f8f9fa; /* Fundo Leve */
+    --color-neutral-medium: #dee2e6; /* Borda/Divisor */
+    --color-neutral-dark: #343a40; /* Texto Escuro/Fundo Header */
+    --color-text-light: #ffffff; /* Texto Claro */
+    --color-error: #dc3545; /* Vermelho para Erros */
+    --color-success: #28a745; /* Verde para Sucesso */
+
+    /* Espaçamento (Baseado em uma escala modular) */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 48px;
+
+    /* Tipografia */
+    --font-family: 'Inter', sans-serif;
+    --font-size-base: 16px;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.5rem;
+    --font-size-small: 0.875rem;
+
+    /* Elementos */
+    --border-radius: 8px;
+}
+
+/* 2. Reset Básico e Tipografia */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-neutral-dark);
+    background-color: var(--color-neutral-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-md);
+}
+
+h1, h2, h3 {
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+
+p {
+    margin-bottom: var(--space-md);
+}
+
+/* 3. Header e Navegação (Responsiva) */
+header {
+    background-color: var(--color-neutral-dark);
+    color: var(--color-text-light);
+    padding: var(--space-sm) 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+}
+
+header h1 {
+    font-size: var(--font-size-h3);
+    margin-bottom: 0;
+    color: var(--color-text-light);
+}
+
+/* Navegação Desktop */
+#main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-lg);
+}
+
+#main-nav a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-sm) 0;
+    transition: color 0.3s;
+}
+
+#main-nav a:hover {
+    color: var(--color-accent);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-neutral-dark);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 10;
+    flex-direction: column; /* Sobrescreve o flex do ul principal */
+    gap: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.dropdown-content li {
+    padding: 0;
+}
+
+.dropdown-content a {
+    padding: var(--space-sm) var(--space-md);
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-primary);
+}
+
+/* 4. Menu Mobile (Hambúrguer) */
+.menu-toggle {
+    display: none; /* Esconde por padrão no desktop */
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--space-sm);
+}
+
+@media (max-width: 767px) {
+    /* Mostra o botão hambúrguer */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Esconde o menu de navegação por padrão */
+    #main-nav ul {
+        display: none;
+    }
+    
+    /* Quando o JS adiciona a classe .is-open, o menu aparece (Lógica no scripts.js) */
+    #main-nav.is-open ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 65px; /* Altura do Header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-neutral-dark);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    #main-nav li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    #main-nav a {
+        display: block;
+        padding: var(--space-md);
+    }
+    
+    .dropdown:hover .dropdown-content {
+        position: static; /* Ajusta a posição para mobile */
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    .dropdown-content {
+        box-shadow: none;
+    }
+}
+
+/* 5. Estilo de Botões */
+.btn {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+    border: 2px solid transparent;
+    margin: var(--space-xs); /* Espaçamento entre botões */
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #004494; /* Tonalidade mais escura */
+    box-shadow: 0 4px 10px rgba(0, 86, 179, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn:not(.btn-primary) {
+    background-color: var(--color-neutral-medium);
+    color: var(--color-neutral-dark);
+    border-color: var(--color-neutral-medium);
+}
+
+.btn:not(.btn-primary):hover {
+    background-color: #c4c9ce;
+    border-color: #c4c9ce;
+    transform: translateY(-1px);
+}
+
+/* 6. Layouts Específicos */
+
+/* Layout da Home (Sidebar e Conteúdo) */
+.main-content-grid {
+    display: grid;
+    gap: var(--space-xl);
+    padding-top: var(--space-lg);
+    grid-template-areas: 
+        "sobre" 
+        "sidebar";
+}
+
+/* Layout 2 colunas para desktop */
+@media (min-width: 768px) {
+    .main-content-grid {
+        grid-template-columns: 2fr 1fr; /* 2/3 para o conteúdo, 1/3 para o sidebar */
+        grid-template-areas: "sobre sidebar";
+    }
+}
+
+/* Layout do Formulário (Imagem + Formulário) */
+.flex-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-top: var(--space-xl);
+}
+
+@media (min-width: 992px) {
+    .flex-layout {
+        flex-direction: row; /* Colunas no desktop */
+        justify-content: space-between;
+    }
+    .flex-layout section {
+        flex: 1;
+        min-width: 50%;
+    }
+    .flex-layout figure {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .flex-layout img {
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Layout de Cards (Projetos) */
+.project-cards-container {
+    display: grid;
+    gap: var(--space-lg);
+    padding-bottom: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 1 coluna no mobile, 2+ no desktop */
+}
+
+/* 7. Cards e Componentes */
+.card {
+    background-color: var(--color-text-light);
+    border-radius: var(--border-radius);
+    padding: var(--space-lg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-neutral-medium);
+    display: flex;
+    flex-direction: column; /* Necessário para empurrar o botão para baixo */
+}
+
+.card h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: var(--space-md);
+}
+
+/* Badges de Categoria */
+.badge {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-small);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+    align-self: flex-start; /* Alinha no canto superior esquerdo do card */
+}
+
+.badge-voluntariado {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.badge-doacao {
+    background-color: var(--color-accent);
+    color: var(--color-neutral-dark);
+}
+
+/* 8. Estilo de Formulários */
+form {
+    background-color: var(--color-text-light);
+    padding: var(--space-lg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-neutral-medium);
+}
+
+fieldset {
+    border: 1px solid var(--color-neutral-medium);
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+    border-radius: var(--border-radius);
+}
+
+legend {
+    padding: 0 var(--space-sm);
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+form div {
+    margin-bottom: var(--space-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 1px solid var(--color-neutral-medium);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
+}
+
+input[type="checkbox"] + label {
+    display: inline;
+    font-weight: 400;
+    margin-right: var(--space-md);
+}
+
+/* Alerta de feedback */
+.alert {
+    padding: var(--space-md);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: var(--color-success);
+    border-color: #c3e6cb;
+}
+
+
+/* 9. Footer */
+footer {
+    background-color: var(--color-neutral-dark);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: var(--space-md) 0;
+    margin-top: var(--space-xl);
+    font-size: var(--font-size-small);
+}
+
+footer p {
+    margin-bottom: 0;
+}
