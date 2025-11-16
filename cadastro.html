@@ -1,0 +1,187 @@
+CTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Abrace a Causa</title>
+    <!-- Link para o Design System (CSS) -->
+    <link rel="stylesheet" href="css/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container main-header-content">
+            <h1>Abrace a Causa</h1>
+            <!-- Ícone Menu Hambúrguer (Apenas para Mobile) -->
+            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                &#9776; <!-- Ícone de hambúrguer -->
+            </button> 
+
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li class="dropdown">
+                        <a href="#">Como Ajudar &#9662;</a>
+                        <ul class="dropdown-content">
+                            <li><a href="cadastro.html?tipo=voluntario">Quero ser Voluntário</a></li>
+                            <li><a href="cadastro.html?tipo=doador">Quero Doar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <!-- .flex-layout usa Flexbox para layout 50/50 em telas maiores (configurado no CSS) -->
+        <div class="container flex-layout">
+            
+            <section>
+                <!-- O JavaScript (scripts.js) irá mudar este título e parágrafo dependendo do parâmetro 'tipo' na URL -->
+                <h2 id="form-title"></h2>
+                <p id="form-description"></p>
+                
+                <form action="#" method="POST" id="main-form">
+                    
+                    <fieldset>
+                        <legend>⭐ Dados Pessoais</legend>
+                        
+                        <div>
+                            <label for="nome_completo">Nome Completo *</label>
+                            <input type="text" id="nome_completo" name="nome_completo" required minlength="5">
+                        </div>
+                        
+                        <div>
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div>
+                            <label for="cpf">CPF (000.000.000-00) *</label>
+                            <!-- ID 'cpf' é usado pelo script.js para aplicar a máscara de entrada -->
+                            <input 
+                                type="text" 
+                                id="cpf" 
+                                name="cpf" 
+                                required 
+                                maxlength="14" 
+                                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
+                                title="O CPF deve estar no formato 000.000.000-00"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label for="telefone">Telefone ((00) 00000-0000) *</label>
+                             <!-- ID 'telefone' é usado pelo script.js para aplicar a máscara de entrada -->
+                            <input 
+                                type="tel" 
+                                id="telefone" 
+                                name="telefone" 
+                                required 
+                                maxlength="15" 
+                                pattern="\(\d{2}\) \d{4,5}-\d{4}" 
+                                title="O Telefone deve estar no formato (00) 0000-0000 ou (00) 90000-0000"
+                            >
+                        </div>
+                        
+                        <div id="data-nascimento-container">
+                            <label for="data_nascimento">Data de Nascimento *</label>
+                            <input 
+                                type="date" 
+                                id="data_nascimento" 
+                                name="data_nascimento" 
+                                required 
+                                max="2007-12-31" 
+                            > 
+                            <p id="data-nascimento-info" style="font-size: var(--font-size-small); color: #6c757d;">Para voluntariar, você deve ter no mínimo 18 anos.</p>
+                        </div>
+                        
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend id="fieldset-legend">🏠 Endereço</legend>
+                        
+                        <div>
+                            <label for="cep">CEP (00000-000) *</label>
+                            <!-- ID 'cep' é usado pelo script.js para aplicar a máscara de entrada -->
+                            <input 
+                                type="text" 
+                                id="cep" 
+                                name="cep" 
+                                required 
+                                maxlength="9" 
+                                pattern="\d{5}-\d{3}" 
+                                title="O CEP deve estar no formato 00000-000"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label for="endereco">Endereço (Rua, Número) *</label>
+                            <input type="text" id="endereco" name="endereco" required>
+                        </div>
+                        
+                        <div>
+                            <label for="estado">Estado *</label>
+                            <select id="estado" name="estado" required>
+                                <option value="" disabled selected>Selecione o Estado</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PR">Paraná</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="BA">Bahia</option>
+                            </select>
+                        </div>
+
+                        <!-- Este campo será visível APENAS para Voluntários (o JS irá controlá-lo) -->
+                        <div id="interesses-container" style="margin-top: var(--space-md);">
+                            <label>Áreas de Interesse (pode selecionar mais de uma):</label>
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-xs);">
+                                <label><input type="checkbox" name="interesse" value="educacao"> Educação</label>
+                                <label><input type="checkbox" name="interesse" value="meio_ambiente"> Meio Ambiente</label>
+                                <label><input type="checkbox" name="interesse" value="saude"> Saúde</label>
+                                <label><input type="checkbox" name="interesse" value="tecnologia"> Tecnologia</label>
+                                <label><input type="checkbox" name="interesse" value="administrativo"> Administrativo</label>
+                            </div>
+                        </div>
+
+                        <!-- Este campo será visível APENAS para Doadores (o JS irá controlá-lo) -->
+                        <div id="doacao-container" style="margin-top: var(--space-md); display:none;">
+                            <label for="tipo_doacao">Tipo de Doação:</label>
+                            <select id="tipo_doacao" name="tipo_doacao">
+                                <option value="financeira">Doação Financeira</option>
+                                <option value="material">Doação de Materiais/Alimentos</option>
+                            </select>
+                            <p style="font-size: var(--font-size-small); color: #6c757d; margin-top: var(--space-xs);">Entraremos em contato para combinar os detalhes.</p>
+                        </div>
+                        
+                    </fieldset>
+                    
+                    <!-- Botões com classe .btn-primary e estado hover/focus definido no CSS -->
+                    <button type="submit" class="btn btn-primary" id="submit-button">Cadastrar Agora</button>
+                    <button type="reset" class="btn">Limpar Formulário</button>
+                    <div id="submission-feedback" class="alert alert-success" style="display: none; margin-top: var(--space-md);"></div>
+                </form>
+            </section>
+            
+            <figure>
+                <!-- Imagem Placeholder que será atualizada pelo JS -->
+                <img id="figure-image" src="" alt="Imagem de fundo para o cadastro." width="400">
+                <figcaption id="figure-caption" style="font-size: var(--font-size-small); text-align: center; margin-top: var(--space-sm);"></figcaption>
+            </figure>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Abrace a Causa. Todos os direitos reservados. | Desenvolvido com carinho.</p>
+        </div>
+    </footer>
+
+    <!-- Link para o JS (Menu Mobile e Máscaras) -->
+    <script src="js/scripts.js"></script> 
+</body>
+</html>
