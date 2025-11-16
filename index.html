@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrace a Causa - Voluntariado e Doações</title>
+    <!-- Link para o CSS (Importante: O navegador vai procurar o arquivo style.css dentro da pasta css/) -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Fonte Google: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container main-header-content">
+            <h1>Abrace a Causa</h1>
+            
+            <!-- Ícone Menu Hambúrguer (Apenas para Mobile) -->
+            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                &#9776; <!-- Ícone de hambúrguer -->
+            </button>
+            
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li class="dropdown">
+                        <a href="#">Como Ajudar &#9662;</a>
+                        <ul class="dropdown-content">
+                            <li><a href="cadastro.html?tipo=voluntario">Quero ser Voluntário</a></li>
+                            <li><a href="cadastro.html?tipo=doador">Quero Doar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="container" style="text-align: center; margin-bottom: var(--space-xl);">
+            <h2>Faça a Diferença. Seja a Mudança.</h2>
+            <p style="font-size: var(--font-size-h3);">Sua ajuda transforma vidas em nossa comunidade.</p>
+            <a href="cadastro.html?tipo=voluntario" class="btn btn-primary" style="margin-top: var(--space-md);">Quero ser Voluntário</a>
+            <a href="cadastro.html?tipo=doador" class="btn btn-primary" style="background-color: var(--color-accent); border-color: var(--color-accent); color: var(--color-neutral-dark);">Quero Doar</a>
+        </section>
+
+        <div class="container main-content-grid">
+            <section id="sobre">
+                <h3 class="title-section">Nossa Missão</h3>
+                <p>Abrace a Causa é uma organização dedicada a conectar voluntários e recursos com projetos que promovem a inclusão social e a sustentabilidade. Acreditamos que o poder da comunidade pode resolver os desafios mais complexos.</p>
+                <p>Desde a nossa fundação em 2018, já apoiamos mais de 50 iniciativas, impactando diretamente a vida de milhares de famílias. Nossa transparência e dedicação são a base da nossa confiança.</p>
+            </section>
+            
+            <aside id="sidebar">
+                <div class="card">
+                    <h3>Destaque do Mês</h3>
+                    <p>Conheça o projeto "Cozinha Solidária", que alimenta mais de 300 pessoas em situação de vulnerabilidade toda semana. Precisamos de R$ 5.000,00 para comprar equipamentos novos e expandir a cozinha.</p>
+                    <div style="margin-top: var(--space-md); text-align: center;">
+                        <a href="cadastro.html?tipo=doador" class="btn btn-primary">Doar Agora</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <section id="contato" class="container" style="padding-top: var(--space-xl);">
+            <h3 class="title-section">Entre em Contato</h3>
+            <div class="card">
+                <p>Se você tem dúvidas, sugestões ou quer propor uma nova parceria, fale conosco:</p>
+                <ul>
+                    <li>Email: contato@abraceacausa.org.br</li>
+                    <li>Telefone: (11) 98765-4321</li>
+                    <li>Endereço: Rua da Esperança, 100 - Bairro Feliz, SP</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Abrace a Causa. Todos os direitos reservados. | Desenvolvido com carinho.</p>
+        </div>
+    </footer>
+    
+    <!-- Link para o JavaScript (deve estar no final do body) -->
+    <!-- O navegador vai procurar o arquivo scripts.js dentro da pasta js/ -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
